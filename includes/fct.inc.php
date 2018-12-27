@@ -8,7 +8,17 @@
  */
 function estConnecte()
 {
-    return isset($_SESSION['idVisiteur']);
+    return isset($_SESSION['idUtilisateur']);
+}
+
+function estComptableConnecte()
+{
+    return bool ($_SESSION['statut']);
+}
+
+function estVisiteurConnecte()
+{
+    return bool ($_SESSION['statut']);
 }
 
 /**
@@ -17,14 +27,16 @@ function estConnecte()
  * @param String $idVisiteur ID du visiteur
  * @param String $nom        Nom du visiteur
  * @param String $prenom     Prénom du visiteur
+ * @param String $statut     Statut du visiteur
  *
  * @return null
  */
-function connecter($idVisiteur, $nom, $prenom)
+function connecter($idUtilisateur, $nom, $prenom,$statut)
 {
-    $_SESSION['idVisiteur'] = $idVisiteur;
+    $_SESSION['idUtilisateur'] = $idUtilisateur;
     $_SESSION['nom'] = $nom;
     $_SESSION['prenom'] = $prenom;
+    $_SESSION['statut']= $statut;
 }
 
 /**
