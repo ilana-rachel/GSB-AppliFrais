@@ -1,25 +1,15 @@
 <?php
 
 
+//declaration variables
+$estVisiteurConnecte = estVisiteurConnecte();
+$estComptableConnecte = estComptableConnecte();
 
-if ($estConnecte) {
+if ($estVisiteurConnecte) {
    include 'vues/v_accueilVisiteur.php';
-} else if ($estComptableConnecte) {
+} elseif ($estComptableConnecte) {
      include 'vues/v_accueilComptable.php';  
-} else {
+}else{
     include 'vues/v_connexion.php';
 }
-
-
-
-/**if ($estVisiteurConnecte) {
-    include 'vues/v_accueilVisiteur.php';
-} else {
-    include 'vues/v_connexion.php';
-}
-if ($estComptableConnecte) {
-    include 'vues/v_accueilomptable.php';
-} else {
-    include 'vues/v_connexion.php';
-}
-**/
+?>

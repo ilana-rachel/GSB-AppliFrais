@@ -11,14 +11,18 @@ function estConnecte()
     return isset($_SESSION['idUtilisateur']);
 }
 
-function estComptableConnecte()
-{
-    return bool ($_SESSION['statut']);
-}
-
 function estVisiteurConnecte()
 {
-    return bool ($_SESSION['statut']);
+    if (estConnecte()){
+    return ($_SESSION['statut']=='visiteur');
+    }
+}
+
+function estComptableConnecte()
+{
+    if (estConnecte()){
+    return ($_SESSION['statut']=='comptable');
+    }
 }
 
 /**
