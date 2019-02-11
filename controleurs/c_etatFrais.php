@@ -1,7 +1,7 @@
 <?php
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
-$idVisiteur = $_SESSION['idVisiteur'];
+$idVisiteur = $_SESSION['idUtilisateur'];
 switch ($action) {
 case 'selectionnerMois':
     $lesMois = $pdo->getLesMoisDisponibles($idVisiteur);
@@ -9,7 +9,7 @@ case 'selectionnerMois':
     // on demande toutes les clés, et on prend la première,
     // les mois étant triés décroissants
     $lesCles = array_keys($lesMois);
-    $moisASelectionner = $lesCles[0];
+    $moisASelectionner = $lesCles;
     include 'vues/v_listeMois.php';
     break;
 case 'voirEtatFrais':
