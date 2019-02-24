@@ -99,6 +99,30 @@ function getMois($date)
     return $annee . $mois;
 }
 
+/**
+ * Fonction qui retourne le mois précédent un mois passé en paramètre
+ *
+ * @param String $mois Contient le mois à utiliser
+ *
+ * @return String le mois d'avant
+ */
+function getMoisPrecedent($mois)
+{
+    $numAnnee = substr($mois, 0, 4);
+    $numMois = substr($mois, 4, 2);
+    if ($numMois == '01') {
+        $numMois = '12';
+        $numAnnee--;
+    } else {
+        $numMois--;
+    }
+    if (strlen($numMois) == 1) {
+        $numMois = '0' . $numMois;
+    }
+    return $numAnnee . $numMois;
+}
+
+
 /* gestion des erreurs */
 
 /**

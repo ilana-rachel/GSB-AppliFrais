@@ -26,6 +26,10 @@ case 'gererFrais':
 case 'etatFrais':
     include 'controleurs/c_etatFrais.php';
     break;
+case 'valideFrais':
+    include 'controleurs/c_valideFrais.php';
+    break;
+    
 case 'deconnexion':
     include 'controleurs/c_deconnexion.php';
     break;
