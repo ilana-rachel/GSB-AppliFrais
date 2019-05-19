@@ -2,7 +2,7 @@
 
 
 /**
- * Teste si un quelconque visiteur est connecté
+ * Teste si un quelconque utilisateur est connecté
  *
  * @return vrai ou faux
  */
@@ -10,39 +10,51 @@ function estConnecte()
 {
     return isset($_SESSION['idUtilisateur']);
 }
+/**
+ * Teste si un visiteur est connecté
+ *
+ * @return vrai ou faux
+ * 
+ */
 
 function estVisiteurConnecte()
 {
     if (estConnecte()){
-    return ($_SESSION['statut']=='visiteur');
-    }
+        return ($_SESSION['statut']== 'visiteur');
+    }   
 }
+
+/**
+ * Teste si un comptable est connecté
+ *
+ * @return vrai ou faux
+ */
 
 function estComptableConnecte()
 {
     if (estConnecte()){
-    return ($_SESSION['statut']=='comptable');
-    }
+        return ($_SESSION['statut'] == 'comptable');
+    }   
 }
 
 /**
- * Enregistre dans une variable session les infos d'un visiteur
+ * Enregistre dans une variable session les infos d'un Utilisateur
  *
- * @param String $idVisiteur ID du visiteur
- * @param String $nom        Nom du visiteur
- * @param String $prenom     Prénom du visiteur
- * @param String $statut     Statut du visiteur
+ * @param String $idVisiteur ID de l' Utilisateur
+ * @param String $nom        Nom de l' Utilisateur
+ * @param String $prenom     Prénom de l'Utilisateur
  *
  * @return null
  */
-function connecter($idUtilisateur, $nom, $prenom,$statut)
+function connecter($idUtilisateur, $nom, $prenom, $statut)
 {
     $_SESSION['idUtilisateur'] = $idUtilisateur;
     $_SESSION['nom'] = $nom;
     $_SESSION['prenom'] = $prenom;
-    $_SESSION['statut']= $statut;
+    $_SESSION['statut'] = $statut;
 }
 
+    
 /**
  * Détruit la session active
  *
@@ -255,8 +267,8 @@ function valideInfosFrais($dateFrais, $libelle, $montant)
  */
 function ajouterErreur($msg)
 {
-    if (!isset($_REQUEST['erreurs'])) {//exist ou pas
-        $_REQUEST['erreurs'] = array();//tableau
+    if (!isset($_REQUEST['erreurs'])) {
+        $_REQUEST['erreurs'] = array();
     }
     $_REQUEST['erreurs'][] = $msg;
 }
@@ -274,3 +286,24 @@ function nbErreurs()
         return count($_REQUEST['erreurs']);
     }
 }
+
+/**
+ * Retourne une liste des douzes mois précédents du mois précédent
+ * 
+ * @return Array liste des mois
+ */
+function getLesDouzeDerniersMois($mois){
+    $lesMois= array();
+    for ($k=0;$k<=12;$k++){
+        $mois= getMoisPrecedent($mois);
+        $numAnnee = substr($mois,0,4);
+        $numMois = substr($mois,4,2);
+        $lesMois [] = array(
+            'mois'=> $mois,
+            'numAnnee'=> $numAnnee,
+            'numMois'=> $numMois
+        );
+    }
+    return $lesMois;
+}
+

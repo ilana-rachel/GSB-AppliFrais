@@ -1,6 +1,4 @@
-<?php
 
-?>
 <hr>
 <div class="row">
     <div class="panel panel-info">

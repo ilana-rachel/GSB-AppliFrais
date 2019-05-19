@@ -1,6 +1,4 @@
-<?php
 
-?>
 <div class="row">    
     <h2>Renseigner ma fiche de frais du mois 
         <?php echo $numMois . '-' . $numAnnee ?>

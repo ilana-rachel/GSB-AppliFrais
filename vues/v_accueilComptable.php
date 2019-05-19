@@ -18,15 +18,15 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
-                        <a href="index.php?uc=valideFrais&action=valider"
+                        <a href="index.php?uc=validerFrais&action=valider"
                            class="btn btn-success btn-lg" role="button">
-                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="glyphicon glyphicon-ok"></span>
                             <br>Valider les fiches de frais</a>
-                        <a href="index.php?uc=etatFrais&action=selectionnerMois"
+                        <a href="index.php?uc=validerFrais"
                            class="btn btn-primary btn-lg" role="button">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                            <br>Afficher les fiches de frais</a>
-                     </div>
+                            <span class="glyphicon glyphicon-euro"></span>
+                            <br>Afficher mes fiches de frais</a>
+                    </div>
                 </div>
             </div>
         </div>

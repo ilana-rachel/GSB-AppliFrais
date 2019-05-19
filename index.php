@@ -4,16 +4,17 @@
 require_once 'includes/fct.inc.php';
 require_once 'includes/class.pdogsb.inc.php';
 session_start();
-$pdo = PdoGsb::getPdoGsb();//appel de la fonction::
-$estConnecte = estConnecte();//valeur v ou f en fonction de si qq1 est connecté
+$pdo = PdoGsb::getPdoGsb();
+$estConnecte = estConnecte();
+
 require 'vues/v_entete.php';
-$uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);//nettoyer la variable pour la transformer en string
-if ($uc && !$estConnecte) {
+$uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
+if ($uc && ! $estConnecte) {
     $uc = 'connexion';
 } elseif (empty($uc)) {
     $uc = 'accueil';
 }
-switch ($uc) {
+switch ($uc) { // pr eviter de faire plrs test :switch et case c tt les test /possibilite
 case 'connexion':
     include 'controleurs/c_connexion.php';
     break;
@@ -26,10 +27,9 @@ case 'gererFrais':
 case 'etatFrais':
     include 'controleurs/c_etatFrais.php';
     break;
-case 'valideFrais':
-    include 'controleurs/c_valideFrais.php';
+case 'validerFrais':
+    include 'controleurs/c_validerFrais.php';
     break;
-    
 case 'deconnexion':
     include 'controleurs/c_deconnexion.php';
     break;
