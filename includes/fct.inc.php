@@ -37,6 +37,7 @@ function estComptableConnecte()
     }   
 }
 
+
 /**
  * Enregistre dans une variable session les infos d'un Utilisateur
  *

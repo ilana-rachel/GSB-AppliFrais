@@ -13,8 +13,8 @@ case 'demandeConnexion':
 case 'valideConnexion':
     $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);// pr dire que le fitre,appliquer filtre en string
     $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_STRING);
-    $visiteur = $pdo->getInfosVisiteur($login, $mdp);// represnete la connexion entre php et base de donnee
-    $comptable = $pdo->getInfosComptable($login, $mdp);// represnete la connexion entre php et base de donnee
+    $visiteur = $pdo->getInfosVisiteur($login, $mdp);// represente la connexion entre php et base de donnee
+    $comptable = $pdo->getInfosComptable($login, $mdp);// represente la connexion entre php et base de donnee
     
     
     if (!is_array($visiteur)&&!is_array($comptable))  {
